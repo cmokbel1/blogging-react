@@ -1,1 +1,8 @@
-node_modules
+# ignoring all those thousands of files xD
+node_modules/
+
+# environment because secret stuff
+.env
+
+# database because secret stuff
+db/

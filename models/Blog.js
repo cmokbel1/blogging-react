@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose')
 
 const Blog = new Schema({
   title: String,
+  body: String,
   user: {
     type: Schema.Types.ObjectId,
     ref: 'user'
