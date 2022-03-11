@@ -5,7 +5,7 @@ const axios = require('axios');
 const BlogContainer = (props) => {
   const [blogState, setBlogState] = useState({})
   axios.get('/api/blogs').then(res => {
-    setBlogState({blog: res.data})
+    setBlogState({blogs: res.data})
   })
   return (
     <Blog blog={blogState} />

@@ -1,5 +1,5 @@
 import logo from './Stachecurlssticker.png'
-import { BlogContainer } from '../../components'
+import { BlogContainer, Footer } from '../../components'
 
 
 
@@ -19,6 +19,7 @@ export const Home = (props) => {
         <div className="row justify-content-center">
           <BlogContainer />
         </div>
+        <Footer/>
     </div>
     </>
   )
