@@ -15,6 +15,7 @@ router.get('/blogs/:id', passport.authenticate('jwt'), async function (req, res)
 })
 
 //post one post
+// authenticate that the user is the website master to have access to posting blogs
 router.post('/blogs', passport.authenticate('jwt'), async function (req, res) {
   const blog = await Blog.create({
     body: req.body.body,
