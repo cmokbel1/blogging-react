@@ -1,5 +1,5 @@
 import logo from './Stachecurlssticker.png'
-import { BlogContainer, Footer,  LoginModal } from '../../components'
+import { BlogContainer, Footer,  LoginModal, RegisterModal } from '../../components'
 
 
 
@@ -11,13 +11,20 @@ export const Home = (props) => {
     // modal displays login button inside which queries the database
     // logging in closes the modal and thanks the user for logging in
     <>
+    
         <nav className="navbar navbar-dark bg-dark">
+        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">
+          Register
+        </button>
+        <RegisterModal />
         <a className="navbar-brand mx-auto" href="/">
+          
           <img src={logo} alt="logo" width="75" height="75"/>
           Welcome to Claude's Corner
           <img src={logo} alt="logo" width="75" height="75"/>
         </a>
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">login</button>
+
+        <button type="button" className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">login</button>
         <LoginModal />
     </nav>
     <div className="blog-container">
