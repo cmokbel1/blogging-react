@@ -1,5 +1,5 @@
 import logo from './Stachecurlssticker.png'
-import { BlogContainer, Footer } from '../../components'
+import { BlogContainer, Footer, Login } from '../../components'
 
 
 
@@ -17,6 +17,7 @@ export const Home = (props) => {
           Welcome to Claude's Corner
           <img src={logo} alt="logo" width="75" height="75"/>
         </a>
+        <button className="button btn-warning" onClick={handleModalRender}>Login</button>
     </nav>
     <div className="blog-container">
       beep boop

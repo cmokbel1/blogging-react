@@ -1,3 +1,3 @@
 export { default as Footer } from './footer'
-export { default as BlogContainer } from './blogContainer'
-export { default as Login } from './login'
+export { default as BlogContainer } from './Blog/blogContainer'
+export { default as Login } from './Login/login'
