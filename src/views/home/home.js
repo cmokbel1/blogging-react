@@ -17,7 +17,8 @@ export const Home = (props) => {
           Welcome to Claude's Corner
           <img src={logo} alt="logo" width="75" height="75"/>
         </a>
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={LoginModal}>login</button>
+        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">login</button>
+        <LoginModal />
     </nav>
     <div className="blog-container">
       beep boop
