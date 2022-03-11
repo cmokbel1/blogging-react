@@ -8,7 +8,8 @@ const BlogContainer = (props) => {
     setBlogState({blogs: res.data})
   })
   return (
-    <Blog blog={blogState} />
+    // <Blog blog={blogState} />
+    <></>
   )
 }
 
