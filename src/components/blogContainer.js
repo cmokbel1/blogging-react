@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Blog from './blog'
 const axios = require('axios');
 
 const BlogContainer = (props) => {
@@ -7,9 +8,7 @@ const BlogContainer = (props) => {
     setBlogState({blog: res.data})
   })
   return (
-    <div id='blog'>
-      <h2>{blogState.title}</h2>
-    </div>
+    <Blog blog={blogState} />
   )
 }
 
