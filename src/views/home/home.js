@@ -4,7 +4,6 @@ import { BlogContainer } from '../../components'
 
 
 export const Home = (props) => {
-  const { blogs } = props
   
   return (
     <>
