@@ -12,6 +12,7 @@ const Login = (props) => {
     <div className="col-sm-10">
       <input type="password" className="form-control" id="inputPassword" />
     </div>
+    <button id="loginbutton" className="btn-primary">Login</button>
   </div>
   </>
   )

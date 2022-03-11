@@ -2,7 +2,7 @@
 const Blog = (props) => {
   const { blogState } = props
   return (
-    blogState.map((blog, idx) => {
+    blogState.blogs.map((blog, idx) => {
       return (
         <>
         <h2>{blog.title}</h2>
