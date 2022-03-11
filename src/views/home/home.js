@@ -1,10 +1,9 @@
 import logo from './Stachecurlssticker.png'
-import { BlogContainer, Footer,  LoginModal, RegisterModal } from '../../components'
+import { BlogContainer, Footer, LogOrReg  } from '../../components'
 
 
 
-export const Home = (props) => {
-  
+export function Home(props) {
   return (
     //  dead navbar with login button on the right side
     // login button displays a modal with inputs
@@ -13,19 +12,18 @@ export const Home = (props) => {
     <>
     
         <nav className="navbar navbar-dark bg-dark">
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">
+        {/* <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">
           Register
         </button>
-        <RegisterModal />
+        <RegisterModal /> */}
         <a className="navbar-brand mx-auto" href="/">
           
           <img src={logo} alt="logo" width="75" height="75"/>
           Welcome to Claude's Corner
           <img src={logo} alt="logo" width="75" height="75"/>
         </a>
+        <LogOrReg />
 
-        <button type="button" className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">login</button>
-        <LoginModal />
     </nav>
     <div className="blog-container">
       beep boop

@@ -2,7 +2,7 @@ import { default as Register } from './register'
 
 const RegisterModal = () => {
   return (
-  <div className="modal" tabindex="-1" aria-labelledby='modal' id="registerModal">
+  <div className="modal" tabIndex="-1" aria-labelledby='modal' id="registerModal">
     <div className="modal-dialog">
       <div className="modal-content">
         <div className="modal-header">
