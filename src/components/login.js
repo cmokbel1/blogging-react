@@ -1,3 +1,5 @@
+import loginFunc from '../helpers/loginFunc'
+
 const Login = (props) => {
   return (
     <>
@@ -12,7 +14,7 @@ const Login = (props) => {
     <div className="col-sm-10">
       <input type="password" className="form-control" id="inputPassword" />
     </div>
-    <button id="loginbutton" className="btn-primary">Login</button>
+    <button id="loginbutton" onClick={loginFunc} className="btn-primary">Login</button>
   </div>
   </>
   )
