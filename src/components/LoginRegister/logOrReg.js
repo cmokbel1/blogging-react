@@ -2,7 +2,8 @@ import { useState } from 'react'
 const axios = require('axios');
 
 export function LogOrReg(props) {
-  const [loginState, setLoginState] = useState(true);
+  const [loginState, setLoginState] = useState(false);
+  const [registerState, setRegisterState] = useState(false)
   
   async function loginFunc(user) {
     try {
@@ -42,9 +43,68 @@ export function LogOrReg(props) {
     }
   }
 
-  const handleRegisterModal = () => {
-
+  if (registerState) {
+    return (
+      <div className="modal" tabIndex="-1" aria-labelledby='modal' id="registerModal">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Register Account</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              <form action="/api/user/register" method="POST">
+                <div className="mb-3">
+                  <label htmlFor="username" className="form-label">Username:</label>
+                  <input type="text" name="username" className="form-control" placeholder=" " />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">Password:</label>
+                  <input type="password" name="password" className="form-control" placeholder=" " />
+                </div>
+                <button type="submit" className="btn btn-primary">Register</button>
+              </form>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
+  const handleRegisterModal = () => {
+        return (
+      <div className="modal" tabIndex="-1" aria-labelledby='modal' id="registerModal">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Register Account</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              <form action="/api/user/register" method="POST">
+                <div className="mb-3">
+                  <label htmlFor="username" className="form-label">Username:</label>
+                  <input type="text" name="username" className="form-control" placeholder=" " />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">Password:</label>
+                  <input type="password" name="password" className="form-control" placeholder=" " />
+                </div>
+                <button type="submit" className="btn btn-primary">Register</button>
+              </form>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+  
+  
   if (loginState) {
     return (
       <button type="button" className="btn btn-warning" onClick={handleLogOut}>Logout</button>
