@@ -24,7 +24,7 @@ passport.use(new JWTStrategy({
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: process.env.SECRET
 }, ({ id }, cb) => User.findById(id)
-  .populate('categories')
+  .populate('blog')
   .then(user => cb(null, user))
   .catch(err => cb(err))))
 
@@ -33,6 +33,6 @@ app.use(require('./routes'))
 app.get('*', (req, res) => res.sendFile(join(__dirname, 'client', 'build', 'public', 'index.html')))
 
 require('./db')
-  .then(() => app.listen(process.env.PORT || 3001))
+  .then(() => app.listen(process.env.PORT || 3000))
 
   .catch(err => console.log(err))

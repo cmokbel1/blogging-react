@@ -12,6 +12,8 @@ const BlogContainer = (props) => {
   axios.get('/api/blogs').then(res => {
     console.log(res)
     setBlogState({blogs: res.data})
+  }).catch(err => {
+    console.log(err)
   })
 
   return (
