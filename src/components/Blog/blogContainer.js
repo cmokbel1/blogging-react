@@ -16,10 +16,9 @@ const BlogContainer = (props) => {
     console.log(err)
   })
 
-  return (
-    <p>HelLO</p>
-    // <Blog blog={blogState} />
-  )
+//   return (
+//     // <Blog blog={blogState} />
+//   )
 }
 
 export default BlogContainer;

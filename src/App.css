@@ -47,6 +47,15 @@ main {
   min-height: calc(100vh - 50px);
 }
 
+aside {
+  float: right;
+  margin-right: auto;
+  border:1px solid whitesmoke;
+  width: calc(100vw - 80%);
+  height: calc(100vh - 40%);
+  overflow: scroll;
+}
+
 #foot {
   text-align: center;
   background-color: rgb(33, 37, 41);
