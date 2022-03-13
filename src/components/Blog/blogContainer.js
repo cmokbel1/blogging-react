@@ -8,13 +8,15 @@ const BlogContainer = (props) => {
     title: '',
     body: ''
   })
+  
   axios.get('/api/blogs').then(res => {
-
+    console.log(res)
     setBlogState({blogs: res.data})
   })
+
   return (
+    <p>HelLO</p>
     // <Blog blog={blogState} />
-    <></>
   )
 }
 
