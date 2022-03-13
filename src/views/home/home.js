@@ -20,13 +20,15 @@ export function Home(props) {
         <LogOrReg />
 
     </nav>
+    <main>
     <div className="blog-container">
       beep boop
         <div className="row justify-content-center">
           <BlogContainer />
         </div>
-        <Footer/>
     </div>
+    </main>
+    <Footer />
     </>
   )
 }

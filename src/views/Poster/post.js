@@ -1,4 +1,4 @@
-import logo from './Stachecurlssticker.png'
+import logo from '../home/Stachecurlssticker.png'
 import { Footer, LogOrReg } from '../../components'
 
 export function Poster() {
@@ -12,7 +12,21 @@ export function Poster() {
       </a>
       <LogOrReg />
     </nav>
-    <div> INSERT INPUT FIELDS FOR CREATING A BLOG POST HERE</div>
+    <main>
+    <div>
+        <form action="/api/blogs" method="POST">
+          <div className="mb-3">
+            <label htmlFor="title" className="form-label">Title:</label>
+            <input type="text" name="title" className="form-control" placeholder="Sample Blog Title" />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="body" className="form-label">Body:</label>
+            <textarea name="body" className="form-control" placeholder="Enter Blog Post Here" />
+          </div>
+          <button type="submit" className="btn btn-primary">Post</button>
+        </form>
+    </div>
+    </main>
     <Footer/> 
     </>
   )

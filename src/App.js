@@ -1,11 +1,11 @@
 import './App.css';
-import {Home} from './views'
+import {Home, Poster} from './views'
 
 function App() {
   
   return (
     <>
-    <Home/>
+    <Home />
     </>
   );
 }

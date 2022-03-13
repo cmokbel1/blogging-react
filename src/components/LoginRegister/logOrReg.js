@@ -101,6 +101,10 @@ export function LogOrReg(props) {
                     <input type="text" name="username" className="form-control" placeholder=" " />
                   </div>
                   <div className="mb-3">
+                    <label htmlFor="email" className="form-label">E-mail:</label>
+                    <input type="text" name="email" className="form-control" placeholder=" " />
+                  </div>
+                  <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password:</label>
                     <input type="password" name="password" className="form-control" placeholder=" " />
                   </div>
