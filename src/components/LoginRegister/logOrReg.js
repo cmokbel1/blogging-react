@@ -76,8 +76,8 @@ export function LogOrReg(props) {
                   <div className="col-sm-10">
                     <input type="password" className="form-control" id="inputPassword" />
                     <br />
+                    <button id="loginbutton" onClick={handleLogin} className="btn btn-primary">Login</button>
                   </div>
-                  <button id="loginbutton" onClick={handleLogin} className="btn-primary">Login</button>
                 </div>
               </div>
               <div class="modal-footer">

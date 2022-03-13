@@ -12,12 +12,7 @@ export function Home(props) {
     <>
     
         <nav className="navbar navbar-dark bg-dark">
-        {/* <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">
-          Register
-        </button>
-        <RegisterModal /> */}
         <a className="navbar-brand mx-auto" href="/">
-          
           <img src={logo} alt="logo" width="75" height="75"/>
           Welcome to Claude's Corner
           <img src={logo} alt="logo" width="75" height="75"/>
