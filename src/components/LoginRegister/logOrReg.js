@@ -57,14 +57,14 @@ export function LogOrReg(props) {
   if(!loginState) {
     return (
       <>
-        <div class="modal fade" id="loginModal" aria-hidden="true" aria-labelledby="loginModalLabel" tabIndex="-1">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">User Login</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div className="modal fade" id="loginModal" aria-hidden="true" aria-labelledby="loginModalLabel" tabIndex="-1">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="loginModalLabel">User Login</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <div className="mb-3 row">
                   <label htmlFor="inputUsername" className="col-sm-2 col-form-label">username</label>
                   <div className="col-sm-10">
@@ -80,21 +80,21 @@ export function LogOrReg(props) {
                   </div>
                 </div>
               </div>
-              <div class="modal-footer">
-                <button class="btn btn-primary" data-bs-target="#registerModal" data-bs-toggle="modal">Register</button>
+              <div className="modal-footer">
+                <button className="btn btn-primary" data-bs-target="#registerModal" data-bs-toggle="modal">Register</button>
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="modal fade" id="registerModal" aria-hidden="true" aria-labelledby="registerModalLabel" tabIndex="-1">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="registerModalLabel">Register Account</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div className="modal fade" id="registerModal" aria-hidden="true" aria-labelledby="registerModalLabel" tabIndex="-1">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="registerModalLabel">Register Account</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <form action="/api/users/register" method="POST">
                   <div className="mb-3">
                     <label htmlFor="username" className="form-label">Username:</label>
@@ -107,14 +107,14 @@ export function LogOrReg(props) {
                   <button type="submit" className="btn btn-primary">Register</button>
                 </form>
               </div>
-              <div class="modal-footer">
-                <button class="btn btn-primary" data-bs-target="#loginModal" data-bs-toggle="modal">Login</button>
+              <div className="modal-footer">
+                <button className="btn btn-primary" data-bs-target="#loginModal" data-bs-toggle="modal">Login</button>
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
         </div>
-        <a class="btn btn-primary" data-bs-toggle="modal" href="#loginModal" role="button">Login</a>
+        <a className="btn btn-primary" data-bs-toggle="modal" href="#loginModal" role="button">Login</a>
        </>
     )
   }
