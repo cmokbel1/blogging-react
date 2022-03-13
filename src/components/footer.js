@@ -3,7 +3,6 @@ const Footer = (props) => {
     <div id='foot'>
       <footer>
         <p>Copyright 2022 Claude Mokbel</p>
-        <a href="/">Admin</a>
       </footer>
     </div>
   )
