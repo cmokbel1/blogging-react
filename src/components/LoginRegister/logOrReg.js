@@ -3,7 +3,6 @@ const axios = require('axios');
 
 export function LogOrReg(props) {
   const [loginState, setLoginState] = useState(false);
-  const [registerState, setRegisterState] = useState(false)
   
   async function loginFunc(user) {
     try {
@@ -27,7 +26,7 @@ export function LogOrReg(props) {
   }
 
   const handleLogin = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     const { username, token } =  loginFunc({
       username: document.getElementById('inputUsername').value,
@@ -43,65 +42,9 @@ export function LogOrReg(props) {
     }
   }
 
-  if (registerState) {
-    return (
-      <div className="modal" tabIndex="-1" aria-labelledby='modal' id="registerModal">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Register Account</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div className="modal-body">
-              <form action="/api/user/register" method="POST">
-                <div className="mb-3">
-                  <label htmlFor="username" className="form-label">Username:</label>
-                  <input type="text" name="username" className="form-control" placeholder=" " />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">Password:</label>
-                  <input type="password" name="password" className="form-control" placeholder=" " />
-                </div>
-                <button type="submit" className="btn btn-primary">Register</button>
-              </form>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+
   const handleRegisterModal = () => {
-        return (
-      <div className="modal" tabIndex="-1" aria-labelledby='modal' id="registerModal">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Register Account</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div className="modal-body">
-              <form action="/api/user/register" method="POST">
-                <div className="mb-3">
-                  <label htmlFor="username" className="form-label">Username:</label>
-                  <input type="text" name="username" className="form-control" placeholder=" " />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">Password:</label>
-                  <input type="password" name="password" className="form-control" placeholder=" " />
-                </div>
-                <button type="submit" className="btn btn-primary">Register</button>
-              </form>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
+    console.log('ping')
   }
   
   
@@ -114,40 +57,65 @@ export function LogOrReg(props) {
   if(!loginState) {
     return (
       <>
-      <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#loginModal">
-  Login
-</button>
-      <div className="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="staticBackdropLabel">User Login</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div className="modal-body">
-              <div className="mb-3 row">
-                <label htmlFor="inputUsername" className="col-sm-2 col-form-label">username</label>
-                <div className="col-sm-10">
-                  <input type="text" className="form-control" id="inputUsername" />
+        <div class="modal fade" id="loginModal" aria-hidden="true" aria-labelledby="loginModalLabel" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">User Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div className="mb-3 row">
+                  <label htmlFor="inputUsername" className="col-sm-2 col-form-label">username</label>
+                  <div className="col-sm-10">
+                    <input type="text" className="form-control" id="inputUsername" />
+                  </div>
+                </div>
+                <div className="mb-3 row">
+                  <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Password</label>
+                  <div className="col-sm-10">
+                    <input type="password" className="form-control" id="inputPassword" />
+                    <br />
+                  </div>
+                  <button id="loginbutton" onClick={handleLogin} className="btn-primary">Login</button>
                 </div>
               </div>
-              <div className="mb-3 row">
-                <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Password</label>
-                <div className="col-sm-10">
-                  <input type="password" className="form-control" id="inputPassword" />
-                  <br />
-                </div>
-                <button id="loginbutton" onClick={handleLogin} className="btn-primary">Login</button>
+              <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#registerModal" data-bs-toggle="modal">Register</button>
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-primary" onClick={handleRegisterModal}>Register</button>
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
-      </div>
-    </>
+        <div class="modal fade" id="registerModal" aria-hidden="true" aria-labelledby="registerModalLabel" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Register Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form action="/api/users/register" method="POST">
+                  <div className="mb-3">
+                    <label htmlFor="username" className="form-label">Username:</label>
+                    <input type="text" name="username" className="form-control" placeholder=" " />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="password" className="form-label">Password:</label>
+                    <input type="password" name="password" className="form-control" placeholder=" " />
+                  </div>
+                  <button type="submit" className="btn btn-primary">Register</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#loginModal" data-bs-toggle="modal">Login</button>
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="btn btn-primary" data-bs-toggle="modal" href="#loginModal" role="button">Login</a>
+       </>
     )
   }
 
