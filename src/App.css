@@ -47,10 +47,14 @@ main {
   min-height: calc(100vh - 50px);
 }
 
+.blogs {
+  border: 1px solid whitesmoke;
+}
+
 aside {
   float: right;
   margin-right: auto;
-  border:1px solid whitesmoke;
+  border: 1px solid whitesmoke;
   width: calc(100vw - 80%);
   height: calc(100vh - 40%);
   overflow: scroll;
