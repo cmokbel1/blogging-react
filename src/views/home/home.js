@@ -1,5 +1,5 @@
 import logo from './Stachecurlssticker.png'
-import { BlogContainer, Footer, LogOrReg, Profile  } from '../../components'
+import { BlogContainer, Footer, NavBar } from '../../components'
 
 
 
@@ -10,16 +10,7 @@ export function Home(props) {
     // modal displays login button inside which queries the database
     // logging in closes the modal and thanks the user for logging in
     <>
-    
-        <nav className="navbar navbar-dark bg-dark">
-        <a className="navbar-brand mx-auto" href="/">
-          <img src={logo} alt="logo" width="75" height="75"/>
-          Welcome to Claude's Corner
-          <img src={logo} alt="logo" width="75" height="75"/>
-        </a>
-        <Profile/>
-        <LogOrReg />
-    </nav>
+    <NavBar />
     <main>
         <div className=" blogs row justify-content-center">
           This information will be postd blogs 
