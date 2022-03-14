@@ -1,9 +1,49 @@
 import { useState } from 'react'
+import { Profile } from '../Profile/profile'
 const axios = require('axios');
 
+
 export function LogOrReg(props) {
-  const [loginState, setLoginState] = useState(false);
-  
+  // STATES
+  const [loginState, setLoginState] = useState(true);
+  const [userState, setUserState] = useState({
+    username: '',
+    password: '',
+    user: {}
+  })
+
+  const [registerState, setRegisterState] = useState({
+    username:'',
+    password:'',
+    email: ''
+  })
+  // handle changes in inputs on forms
+  const handleInputChangeLogin = ({ target: { name, value } }) => {
+    setUserState({ ...userState, [name]: value });
+  }
+  const handleInputChangeRegister = ({ target: { name, value } }) => {
+    setRegisterState({ ...registerState, [name]: value });
+  }
+
+  // button click response for register
+  const handleRegisterClick = (event) => {
+    event.preventDefault()
+    
+    const { username, password, email } = handleRegistration({
+      username: registerState.username,
+      password: registerState.password,
+      email: registerState.email
+    })
+    console.log(username,password, email);
+    window.location ='/';
+  }
+  // function that handles the registration post
+  function handleRegistration(user) {
+    const { data } = axios.post('api/users/register',  user)
+    return data
+  }
+
+  // Login function 
   async function loginFunc(user) {
     try {
       const { data } = await axios.post('/api/users/login', user)
@@ -14,41 +54,52 @@ export function LogOrReg(props) {
       alert('Something Went Wrong. Please Try Again')
     }
   }
-
-  if (localStorage.getItem('token')) {
-    setLoginState(true)
-  }
-
+ 
+  //  when a user logs out
   const handleLogOut = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     setLoginState(false)
   }
-
+  // when a user clicks login
   const handleLogin = (event) => {
     event.preventDefault();
-
+    // pushing user information to user object
+    setUserState({
+      ...userState,
+      user: {
+        username: userState.username,
+        password: userState.password
+      },
+      username: '',
+      password: ''
+    })
+    //  passing username and token into the login function 
     const { username, token } =  loginFunc({
-      username: document.getElementById('inputUsername').value,
-      password: document.getElementById('inputPassword').value,
-
+      username: userState.user.username,
+      password: userState.user.password,
     })
     console.log({ username, token })
-
+    //  if the token is present we set the token and username in local storage
     if(token) {
       localStorage.setItem('username', username)
       localStorage.setItem('token', token)
+      // changing the login state if token is present
+      setLoginState(true)
       window.location = '/'
     }
   }
 
-
+  //  when the token is present and login state is set to true
   if (loginState) {
     return (
+      <>
+      <Profile />
       <button type="button" className="btn btn-warning" onClick={handleLogOut}>Logout</button>
+      </>
     )
   }
-
+  // if there is no token we display the login/ registration modal
   if(!loginState) {
     return (
       <>
@@ -63,13 +114,13 @@ export function LogOrReg(props) {
                 <div className="mb-3 row">
                   <label htmlFor="inputUsername" className="col-sm-2 col-form-label">username</label>
                   <div className="col-sm-10">
-                    <input type="text" className="form-control" id="inputUsername" />
+                    <input type="text" className="form-control" id="inputUsername" onChange={handleInputChangeLogin} value={userState.username} placeholder=" "/>
                   </div>
                 </div>
                 <div className="mb-3 row">
                   <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Password</label>
                   <div className="col-sm-10">
-                    <input type="password" className="form-control" id="inputPassword" />
+                    <input type="password" className="form-control" id="inputPassword" onChange={handleInputChangeLogin} value={userState.password} placeholder=" "/>
                     <br />
                     <button id="loginbutton" onClick={handleLogin} className="btn btn-primary">Login</button>
                   </div>
@@ -90,20 +141,20 @@ export function LogOrReg(props) {
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div className="modal-body">
-                <form action="/api/users/register" method="POST">
+                <form>
                   <div className="mb-3">
                     <label htmlFor="username" className="form-label">Username:</label>
-                    <input type="text" name="username" className="form-control" placeholder=" " />
+                    <input type="text" name="username" id="registerUser" value={registerState.username} onChange={handleInputChangeRegister} className="form-control" placeholder=" " />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">E-mail:</label>
-                    <input type="text" name="email" className="form-control" placeholder=" " />
+                    <input type="text" name="email" id="registerEmail" className="form-control" onChange={handleInputChangeRegister} value={registerState.email} placeholder=" " />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password:</label>
-                    <input type="password" name="password" className="form-control" placeholder=" " />
+                    <input type="password" name="password" id="registerPassword"className="form-control" onChange={handleInputChangeRegister}  value={registerState.password} placeholder=" " />
                   </div>
-                  <button type="submit" className="btn btn-primary">Register</button>
+                  <button type="submit" className="btn btn-primary" onClick={handleRegisterClick}>Register</button>
                 </form>
               </div>
               <div className="modal-footer">

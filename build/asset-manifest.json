@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c96869aa.css",
+    "main.js": "/static/js/main.6cd216cd.js",
+    "static/js/787.b9273013.chunk.js": "/static/js/787.b9273013.chunk.js",
+    "static/media/Stachecurlssticker.png": "/static/media/Stachecurlssticker.4ede68e3842d6948f8db.png",
+    "index.html": "/index.html",
+    "main.c96869aa.css.map": "/static/css/main.c96869aa.css.map",
+    "main.6cd216cd.js.map": "/static/js/main.6cd216cd.js.map",
+    "787.b9273013.chunk.js.map": "/static/js/787.b9273013.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c96869aa.css",
+    "static/js/main.6cd216cd.js"
+  ]
+}

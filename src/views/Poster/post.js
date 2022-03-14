@@ -1,4 +1,4 @@
-import logo from '../home/Stachecurlssticker.png'
+
 import { Footer, NavBar } from '../../components'
 
 export function Poster() {

@@ -1,5 +1,4 @@
 import logo from './Stachecurlssticker.png';
-import { Profile } from '../Profile/profile'
 import { LogOrReg } from '../LoginRegister/logOrReg'
 
 export function NavBar() {
@@ -10,7 +9,6 @@ export function NavBar() {
         Welcome to Claude's Corner
         <img src={logo} alt="logo" width="75" height="75" />
       </a>
-      <Profile />
       <LogOrReg />
     </nav>
   )

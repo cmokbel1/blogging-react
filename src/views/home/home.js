@@ -1,4 +1,3 @@
-import logo from './Stachecurlssticker.png'
 import { BlogContainer, Footer, NavBar } from '../../components'
 
 
