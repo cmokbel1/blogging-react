@@ -43,11 +43,6 @@ export function LogOrReg(props) {
   }
 
 
-  const handleRegisterModal = () => {
-    console.log('ping')
-  }
-  
-  
   if (loginState) {
     return (
       <button type="button" className="btn btn-warning" onClick={handleLogOut}>Logout</button>
@@ -118,7 +113,7 @@ export function LogOrReg(props) {
             </div>
           </div>
         </div>
-        <a className="btn btn-primary" data-bs-toggle="modal" href="#loginModal" role="button">Login</a>
+        <a className="btn btn-warning" data-bs-toggle="modal" href="#loginModal" role="button">Login</a>
        </>
     )
   }

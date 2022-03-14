@@ -1,5 +1,5 @@
 import logo from './Stachecurlssticker.png'
-import { BlogContainer, Footer, LogOrReg  } from '../../components'
+import { BlogContainer, Footer, LogOrReg, Profile  } from '../../components'
 
 
 
@@ -17,8 +17,8 @@ export function Home(props) {
           Welcome to Claude's Corner
           <img src={logo} alt="logo" width="75" height="75"/>
         </a>
+        <Profile/>
         <LogOrReg />
-
     </nav>
     <main>
         <div className=" blogs row justify-content-center">
