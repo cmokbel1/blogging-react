@@ -11,8 +11,7 @@ const BlogContainer = (props) => {
   
   axios.get('/api/blogs', {headers: {
     Authorization: `Bearer ${localStorage.getItem('token')}`
-  }}).
-  then(res => {
+  }}).then(res => {
     console.log(res)
     setBlogState({blogs: res.data})
   }).catch(err => {
