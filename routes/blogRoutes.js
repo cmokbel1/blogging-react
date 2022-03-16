@@ -3,7 +3,7 @@ const { Blog, User, Note } = require('../models')
 const passport = require('passport')
 
 // get all blogs
-router.get('/blogs', passport.authenticate('jwt'), async function (req, res) {
+router.get('/blogs', async function (req, res) {
   const blogs = await Blog.findAll({ include: [User, Note] })
   res.json(blogs)
 })
