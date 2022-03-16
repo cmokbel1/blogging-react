@@ -5,7 +5,7 @@ const axios = require('axios');
 
 export function LogOrReg(props) {
   // STATES
-  const [loginState, setLoginState] = useState(true);
+  const [loginState, setLoginState] = useState(false);
   const [userState, setUserState] = useState({
     username: '',
     password: '',
