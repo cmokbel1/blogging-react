@@ -114,13 +114,13 @@ export function LogOrReg(props) {
                 <div className="mb-3 row">
                   <label htmlFor="inputUsername" className="col-sm-2 col-form-label">username</label>
                   <div className="col-sm-10">
-                    <input type="text" className="form-control" id="inputUsername" onChange={handleInputChangeLogin} value={userState.username} placeholder=" "/>
+                    <input type="text" className="form-control" id="inputUsername" onChange={handleInputChangeLogin} defaultValue={userState.username} placeholder=" "/>
                   </div>
                 </div>
                 <div className="mb-3 row">
                   <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Password</label>
                   <div className="col-sm-10">
-                    <input type="password" className="form-control" id="inputPassword" onChange={handleInputChangeLogin} value={userState.password} placeholder=" "/>
+                    <input type="password" className="form-control" id="inputPassword" onChange={handleInputChangeLogin} defaultValue={userState.password} placeholder=" "/>
                     <br />
                     <button id="loginbutton" onClick={handleLogin} className="btn btn-primary">Login</button>
                   </div>
@@ -144,15 +144,15 @@ export function LogOrReg(props) {
                 <form>
                   <div className="mb-3">
                     <label htmlFor="username" className="form-label">Username:</label>
-                    <input type="text" name="username" id="registerUser" value={registerState.username} onChange={handleInputChangeRegister} className="form-control" placeholder=" " />
+                    <input type="text" name="username" id="registerUser" defaultValue={registerState.username} onChange={handleInputChangeRegister} className="form-control" placeholder=" " />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">E-mail:</label>
-                    <input type="text" name="email" id="registerEmail" className="form-control" onChange={handleInputChangeRegister} value={registerState.email} placeholder=" " />
+                    <input type="text" name="email" id="registerEmail" className="form-control" onChange={handleInputChangeRegister} defaultValue={registerState.email} placeholder=" " />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password:</label>
-                    <input type="password" name="password" id="registerPassword"className="form-control" onChange={handleInputChangeRegister}  value={registerState.password} placeholder=" " />
+                    <input type="password" name="password" id="registerPassword"className="form-control" onChange={handleInputChangeRegister}  defaultValue={registerState.password} placeholder=" " />
                   </div>
                   <button type="submit" className="btn btn-primary" onClick={handleRegisterClick}>Register</button>
                 </form>
