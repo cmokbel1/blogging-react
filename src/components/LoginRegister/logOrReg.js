@@ -20,9 +20,11 @@ export function LogOrReg(props) {
   // handle changes in inputs on forms
   const handleInputChangeLogin = ({ target: { name, value } }) => {
     setUserState({ ...userState, [name]: value });
+    console.log(userState)
   }
   const handleInputChangeRegister = ({ target: { name, value } }) => {
     setRegisterState({ ...registerState, [name]: value });
+    console.log(registerState)
   }
 
   // button click response for register
@@ -44,9 +46,9 @@ export function LogOrReg(props) {
   }
 
   // Login function 
-  async function loginFunc(user) {
+  function loginFunc(user) {
     try {
-      const { data } = await axios.post('/api/users/login', user)
+      const { data } = axios.post('/api/users/login', user)
       return data
 
 
@@ -65,19 +67,10 @@ export function LogOrReg(props) {
   const handleLogin = (event) => {
     event.preventDefault();
     // pushing user information to user object
-    setUserState({
-      ...userState,
-      user: {
-        username: userState.username,
-        password: userState.password
-      },
-      username: '',
-      password: ''
-    })
     //  passing username and token into the login function 
     const { username, token } =  loginFunc({
-      username: userState.user.username,
-      password: userState.user.password,
+      username: userState.username,
+      password: userState.password,
     })
     console.log({ username, token })
     //  if the token is present we set the token and username in local storage
