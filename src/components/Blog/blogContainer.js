@@ -1,23 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Blog from './blog'
 const axios = require('axios');
 
-async function BlogContainer(props) {
+const BlogContainer = (props) => {
   // creates a blogstate that queries the database for all the blog posts
   const [blogState, setBlogState] = useState({
     title: '',
     body: ''
   })
   
-   await axios.get('/api/blogs', {headers: {
-    Authorization: `Bearer ${localStorage.getItem('token')}`
-  }}).then(res => {
-    console.log(res)
-    setBlogState({blogs: res.data})
-    console.log(blogState)
-  }).catch(err => {
-    console.log(err)
-  })
+  useEffect(() => {
+    function getBlogs() {
+      axios.get('/api/blogs').then(res => {
+        console.log(res)
+        setBlogState({ blogs: res.data })
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+    getBlogs();
+  }, [])
+
+  console.log(blogState)
 
   return (
     '!'
@@ -26,3 +30,11 @@ async function BlogContainer(props) {
 }
 
 export default BlogContainer;
+
+
+//  REMOVED FROM BLOGS API // NOT NEEDED
+// {
+//   headers: {
+//     Authorization: `Bearer ${localStorage.getItem('token')}`
+//   }
+// }
