@@ -2,14 +2,14 @@ import { useState } from 'react';
 import Blog from './blog'
 const axios = require('axios');
 
-const BlogContainer = (props) => {
+async function BlogContainer(props) {
   // creates a blogstate that queries the database for all the blog posts
   const [blogState, setBlogState] = useState({
     title: '',
     body: ''
   })
   
-  axios.get('/api/blogs', {headers: {
+   await axios.get('/api/blogs', {headers: {
     Authorization: `Bearer ${localStorage.getItem('token')}`
   }}).then(res => {
     console.log(res)
