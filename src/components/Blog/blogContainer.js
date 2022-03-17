@@ -14,6 +14,7 @@ async function BlogContainer(props) {
   }}).then(res => {
     console.log(res)
     setBlogState({blogs: res.data})
+    console.log(blogState)
   }).catch(err => {
     console.log(err)
   })
