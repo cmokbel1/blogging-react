@@ -12,8 +12,7 @@ export function Home(props) {
     <NavBar />
     <main>
         <div className=" blogs row justify-content-center">
-          This information will be postd blogs 
-          <BlogContainer />
+          <BlogContainer/>
         </div>
     <aside>
       This is the far right section that should contain related articles based on tags and the like

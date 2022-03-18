@@ -2,12 +2,14 @@
 import { Footer, NavBar } from '../../components'
 
 export function Poster() {
+  
+  
   return (
     <>
     <NavBar />
     <main>
     <div>
-        <form action="/api/blogs" method="POST">
+        <form>
           <div className="mb-3">
             <label htmlFor="title" className="form-label">Title:</label>
             <input type="text" name="title" className="form-control" placeholder="Sample Blog Title" />

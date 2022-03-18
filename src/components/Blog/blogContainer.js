@@ -1,19 +1,26 @@
 import { useState, useEffect } from 'react';
-import Blog from './blog'
+import './blog.css';
+import Blog from './blog';
 const axios = require('axios');
+
 
 const BlogContainer = (props) => {
   // creates a blogstate that queries the database for all the blog posts
-  const [blogState, setBlogState] = useState({
-    title: '',
-    body: ''
-  })
-  
+  const [blogs, setBlogs] = useState([
+    {
+      title: 'Blog one',
+      body: 'Can you tell that I am elated to have solved this issue?'
+   },
+   {
+    title: 'Blog Two',
+    body: " And it was on this day that we realized we still had a long way to go!"
+   }
+  ])
+
   useEffect(() => {
     function getBlogs() {
       axios.get('/api/blogs').then(res => {
         console.log(res)
-        setBlogState({ blogs: res.data })
       }).catch(err => {
         console.log(err)
       })
@@ -21,11 +28,10 @@ const BlogContainer = (props) => {
     getBlogs();
   }, [])
 
-  console.log(blogState)
+  console.log(blogs)
 
   return (
-    '!'
-    // <Blog blog={blogState} />
+    blogs.map((blog, idx) => <Blog  key={idx} blog={blog}/> )
   )
 }
 

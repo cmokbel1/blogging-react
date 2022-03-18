@@ -1,16 +1,14 @@
+import './blog.css';
 
 const Blog = (props) => {
-  const { blogState } = props
-  return (
-    blogState.blogs.map((blog, idx) => {
+  const { blog } = props
       return (
-        <>
+        <div className="blogBox">
         <h2>{blog.title}</h2>
         <p>{blog.body}</p>
-        </>
+        <button className="btn btn-info">Comment</button>
+        </div>
       )
-    } )
-  )
 }
 
 
