@@ -19,11 +19,10 @@ export function LogOrReg(props) {
   // handle changes in inputs on forms
   const handleInputChangeLogin = ({ target: { name, value } }) => {
     setUserState({ ...userState, [name]: value });
-    console.log(userState)
   }
   const handleInputChangeRegister = ({ target: { name, value } }) => {
     setRegisterState({ ...registerState, [name]: value });
-    console.log(registerState)
+
   }
 
   // button click response for register
