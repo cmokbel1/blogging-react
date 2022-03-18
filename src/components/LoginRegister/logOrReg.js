@@ -5,15 +5,15 @@ const axios = require('axios');
 
 export function LogOrReg(props) {
   // STATES
-  const [loginState, setLoginState] = useState(false);
+  const [loginState, setLoginState] = useState(true);
   const [userState, setUserState] = useState({
     username: '',
     password: ''
   })
 
   const [registerState, setRegisterState] = useState({
-    username:'',
-    password:'',
+    username: '',
+    password: '',
     email: ''
   })
   // handle changes in inputs on forms
@@ -29,32 +29,17 @@ export function LogOrReg(props) {
   // button click response for register
   const handleRegisterClick = (event) => {
     event.preventDefault()
-    
-    const { username, password, email } = handleRegistration({
+
+    axios.post('api/users/register', {
       username: registerState.username,
       password: registerState.password,
       email: registerState.email
+    }).then(res => {
+      console.log(res)
     })
-    console.log(username,password, email);
-    window.location ='/';
-  }
-  // function that handles the registration post
-  function handleRegistration(user) {
-    const { data } = axios.post('api/users/register',  user)
-    return data
+
   }
 
-  // Login function 
-  const loginFunc = (user) => {
-    try {
-      const data = axios.post('/api/users/login', user).then(token => {
-        localStorage.setItem('user', token)
-      return data
-    })} catch (err) {
-      alert('Something Went Wrong. Please Try Again')
-    }
-  }
- 
   //  when a user logs out
   const handleLogOut = () => {
     localStorage.removeItem('token');
@@ -64,32 +49,33 @@ export function LogOrReg(props) {
   // when a user clicks login
   const handleLogin = (event) => {
     event.preventDefault();
-    //  passing username and token into the login function 
-    const { username, token } =  loginFunc({
+    axios.post('/api/users/login', {
       username: userState.username,
-      password: userState.password,
-    })
-    console.log({ username, token })
+      password: userState.password
+    }).then(res => {
+      console.log(res)
+    }).catch(err => { console.log(err) })
+
     //  if the token is present we set the token and username in local storage
-    if(token) {
-      localStorage.setItem('username', username)
-      // changing the login state if token is present
-      setLoginState(true)
-      window.location = '/'
-    }
+    //   if(token) {
+    //     localStorage.setItem('username', username)
+    //     // changing the login state if token is present
+    //     setLoginState(true)
+    //     window.location = '/'
+    //   }
   }
 
   //  when the token is present and login state is set to true
   if (loginState) {
     return (
       <>
-      <Profile />
-      <button type="button" className="btn btn-warning" onClick={handleLogOut}>Logout</button>
+        <Profile />
+        <button type="button" className="btn btn-warning" onClick={handleLogOut}>Logout</button>
       </>
     )
   }
   // if there is no token we display the login/ registration modal
-  if(!loginState) {
+  if (!loginState) {
     return (
       <>
         <div className="modal fade" id="loginModal" aria-hidden="true" aria-labelledby="loginModalLabel" tabIndex="-1">
@@ -103,13 +89,13 @@ export function LogOrReg(props) {
                 <div className="mb-3 row">
                   <label htmlFor="inputUsername" className="col-sm-2 col-form-label">username</label>
                   <div className="col-sm-10">
-                    <input type="text" className="form-control" id="inputUsername" name="username" onChange={handleInputChangeLogin} defaultValue={userState.username} placeholder=" "/>
+                    <input type="text" className="form-control" id="inputUsername" name="username" onChange={handleInputChangeLogin} defaultValue={userState.username} placeholder=" " />
                   </div>
                 </div>
                 <div className="mb-3 row">
                   <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Password</label>
                   <div className="col-sm-10">
-                    <input type="password" className="form-control" id="inputPassword" name="password" onChange={handleInputChangeLogin} defaultValue={userState.password} placeholder=" "/>
+                    <input type="password" className="form-control" id="inputPassword" name="password" onChange={handleInputChangeLogin} defaultValue={userState.password} placeholder=" " />
                     <br />
                     <button id="loginbutton" onClick={handleLogin} className="btn btn-primary">Login</button>
                   </div>
@@ -141,7 +127,7 @@ export function LogOrReg(props) {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password:</label>
-                    <input type="password" name="password" id="registerPassword"className="form-control" onChange={handleInputChangeRegister}  defaultValue={registerState.password} placeholder=" " />
+                    <input type="password" name="password" id="registerPassword" className="form-control" onChange={handleInputChangeRegister} defaultValue={registerState.password} placeholder=" " />
                   </div>
                   <button type="submit" className="btn btn-primary" onClick={handleRegisterClick}>Register</button>
                 </form>
@@ -154,7 +140,7 @@ export function LogOrReg(props) {
           </div>
         </div>
         <a className="btn btn-warning" data-bs-toggle="modal" href="#loginModal" role="button">Login</a>
-       </>
+      </>
     )
   }
 

@@ -9,7 +9,7 @@ const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt')
 const app = express()
 const { User } = require('./models')
 
-app.use(express.static(join(__dirname, 'build')))
+app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
