@@ -8,8 +8,7 @@ export function LogOrReg(props) {
   const [loginState, setLoginState] = useState(false);
   const [userState, setUserState] = useState({
     username: '',
-    password: '',
-    user: {}
+    password: ''
   })
 
   const [registerState, setRegisterState] = useState({
@@ -46,12 +45,10 @@ export function LogOrReg(props) {
   }
 
   // Login function 
-  function loginFunc(user) {
+  const loginFunc = (user) => {
     try {
-      const { data } = axios.post('/api/users/login', user)
+       const data  = axios.post('/api/users/login', user).then(res => { console.log(res)})
       return data
-
-
     } catch (err) {
       alert('Something Went Wrong. Please Try Again')
     }
@@ -66,7 +63,6 @@ export function LogOrReg(props) {
   // when a user clicks login
   const handleLogin = (event) => {
     event.preventDefault();
-    // pushing user information to user object
     //  passing username and token into the login function 
     const { username, token } =  loginFunc({
       username: userState.username,
