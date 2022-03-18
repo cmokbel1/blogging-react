@@ -47,9 +47,10 @@ export function LogOrReg(props) {
   // Login function 
   const loginFunc = (user) => {
     try {
-       const data  = axios.post('/api/users/login', user).then(res => { console.log(res)})
+      const data = axios.post('/api/users/login', user).then(token => {
+        localStorage.setItem('user', token)
       return data
-    } catch (err) {
+    })} catch (err) {
       alert('Something Went Wrong. Please Try Again')
     }
   }
@@ -72,7 +73,6 @@ export function LogOrReg(props) {
     //  if the token is present we set the token and username in local storage
     if(token) {
       localStorage.setItem('username', username)
-      localStorage.setItem('token', token)
       // changing the login state if token is present
       setLoginState(true)
       window.location = '/'
