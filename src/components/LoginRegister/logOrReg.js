@@ -53,6 +53,10 @@ export function LogOrReg(props) {
       password: userState.password
     }).then(res => {
       console.log(res)
+      setLoginState(true)
+      localStorage.setItem('username', userState.username)
+      localStorage.setItem('token', res.data.token)
+
     }).catch(err => { console.log(err) })
 
     //  if the token is present we set the token and username in local storage
@@ -96,7 +100,7 @@ export function LogOrReg(props) {
                   <div className="col-sm-10">
                     <input type="password" className="form-control" id="inputPassword" name="password" onChange={handleInputChangeLogin} defaultValue={userState.password} placeholder=" " />
                     <br />
-                    <button id="loginbutton" onClick={handleLogin} className="btn btn-primary">Login</button>
+                    <button id="loginbutton" onClick={handleLogin} data-bs-dismiss="modal" className="btn btn-primary">Login</button>
                   </div>
                 </div>
               </div>

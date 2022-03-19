@@ -58,6 +58,7 @@ aside {
   width: calc(100vw - 80%);
   height: calc(100vh - 40%);
   overflow: scroll;
+  display:block;
 }
 
 #foot {

@@ -25,7 +25,7 @@ export function Profile() {
         </div>
       </div>
     </div >
-    <a class="btn btn-success" data-bs-toggle="modal" href="#profileModal" role="button">Profile</a>
+    <a className="btn btn-success" data-bs-toggle="modal" href="#profileModal" role="button">Profile</a>
     </>
   )
 }
