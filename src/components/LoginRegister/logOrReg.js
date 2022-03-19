@@ -55,7 +55,7 @@ export function LogOrReg(props) {
       console.log(res)
       setLoginState(true)
       localStorage.setItem('username', userState.username)
-      localStorage.setItem('token', res.data.token)
+      // localStorage.setItem('token', res.data.token)
 
     }).catch(err => { console.log(err) })
 
