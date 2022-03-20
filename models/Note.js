@@ -5,6 +5,10 @@ const Note = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'user'
+  },
+  blog: {
+    type: Schema.Types.ObjectId,
+    ref: 'blog'
   }
 
 }, { timestaps: true })
