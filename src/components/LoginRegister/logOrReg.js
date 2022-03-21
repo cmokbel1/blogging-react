@@ -127,15 +127,15 @@ export function LogOrReg(props) {
                 <form>
                   <div className="mb-3">
                     <label htmlFor="username" className="form-label">Username:</label>
-                    <input type="text" name="username" id="registerUser" defaultValue={registerState.username} onChange={handleInputChangeRegister} className="form-control" placeholder=" " />
+                    <input type="text" name="username" id="registerUser" defaultValue={registerState.username} onChange={handleInputChangeRegister} className="form-control" placeholder="" required/>
                   </div>
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">E-mail:</label>
-                    <input type="text" name="email" id="registerEmail" className="form-control" onChange={handleInputChangeRegister} defaultValue={registerState.email} placeholder=" " />
+                    <input type="text" name="email" id="registerEmail" className="form-control" onChange={handleInputChangeRegister} defaultValue={registerState.email} placeholder="" required/>
                   </div>
                   <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password:</label>
-                    <input type="password" name="password" id="registerPassword" className="form-control" onChange={handleInputChangeRegister} defaultValue={registerState.password} placeholder=" " />
+                    <input type="password" name="password" id="registerPassword" className="form-control" onChange={handleInputChangeRegister} defaultValue={registerState.password} placeholder="" required/>
                   </div>
                   <button type="submit" className="btn btn-primary" onClick={handleRegisterClick}>Register</button>
                 </form>
