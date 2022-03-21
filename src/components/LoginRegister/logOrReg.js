@@ -52,14 +52,12 @@ export function LogOrReg(props) {
       username: userState.username,
       password: userState.password
     }).then(token => {
-      setLoginState(true)
       localStorage.setItem('username', userState.username);
       localStorage.setItem('token', token.data);
-    
-
     }).catch(err => { console.log(err) })
-
   }
+
+
   useEffect(() => {
     if (localStorage.getItem('token')) {
       setLoginState(true)
