@@ -52,8 +52,13 @@ export function LogOrReg(props) {
       username: userState.username,
       password: userState.password
     }).then(token => {
-      localStorage.setItem('username', userState.username);
-      localStorage.setItem('token', token.data);
+      if (token != null) {
+        localStorage.setItem('username', userState.username);
+        localStorage.setItem('token', token.data);
+        setLoginState(true)
+      } else {
+        alert('Invalid Username or Password. Please Try Again.')
+      }
     }).catch(err => { console.log(err) })
   }
 
