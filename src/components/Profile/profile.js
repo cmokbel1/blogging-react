@@ -12,7 +12,6 @@ export function Profile() {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
         })
-        console.log(user)
         setCurrentUser(user)
       } catch (err) {
         console.log(err)
@@ -23,7 +22,6 @@ export function Profile() {
     getProfile();
   }, []);
 
-  console.log(currentUser)
   return (
     // display user information
     <>
