@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Profile } from '../Profile/profile'
 const axios = require('axios');
 
 
 export function LogOrReg(props) {
   // STATES
-  const [loginState, setLoginState] = useState(false);
+  const [loginState, setLoginState] = useState();
   const [userState, setUserState] = useState({
     username: '',
     password: ''
@@ -59,14 +59,15 @@ export function LogOrReg(props) {
 
     }).catch(err => { console.log(err) })
 
-    //  if the token is present we set the token and username in local storage
-    //   if(token) {
-    //     localStorage.setItem('username', username)
-    //     // changing the login state if token is present
-    //     setLoginState(true)
-    //     window.location = '/'
-    //   }
   }
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setLoginState(true)
+    } else {
+      setLoginState(false)
+    }
+  }, [])
+
 
   //  when the token is present and login state is set to true
   if (loginState) {
