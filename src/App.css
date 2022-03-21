@@ -1,43 +1,22 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  border-bottom: 2px solid #281c25;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+} */
+
+
+#logOutNav {
+  margin-right: 5px;
+  margin-left: 10px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 
 main {
   padding-top: 50px;
@@ -49,16 +28,29 @@ main {
 .blogs {
   max-width: 800px;
   display: flexbox;
-  margin-left: calc(22.5vw)
+  margin-left: calc(22.5vw);
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+  "topleft topright"
+}
+
+.blogContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: topleft;
 }
 
 aside {
-  float: right;
+  justify-content: center;
+  display: flex;
   border: 2px solid whitesmoke;
   width: calc(100vw - 80%);
   height: calc(100vh - 40%);
   overflow: scroll;
-  display:block;
+  grid-area: topright;
 }
 
 #foot {
@@ -67,4 +59,5 @@ aside {
   color: whitesmoke;
   position: static;
   height: 50px;
+  border-top: 2px solid #281c25;
 }

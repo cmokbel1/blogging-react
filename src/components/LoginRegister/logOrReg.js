@@ -52,10 +52,11 @@ export function LogOrReg(props) {
       username: userState.username,
       password: userState.password
     }).then(token => {
-      if (token != null) {
+      if (token.data != null) {
         localStorage.setItem('username', userState.username);
         localStorage.setItem('token', token.data);
         setLoginState(true)
+        window.location="/"
       } else {
         alert('Invalid Username or Password. Please Try Again.')
       }
@@ -77,7 +78,7 @@ export function LogOrReg(props) {
     return (
       <>
         <Profile />
-        <button type="button" className="btn btn-warning" onClick={handleLogOut}>Logout</button>
+        <button type="button" className="btn btn-warning" id="logOutNav" onClick={handleLogOut}>Logout</button>
       </>
     )
   }
@@ -104,7 +105,7 @@ export function LogOrReg(props) {
                   <div className="col-sm-10">
                     <input type="password" className="form-control" id="inputPassword" name="password" onChange={handleInputChangeLogin} defaultValue={userState.password} placeholder=" " />
                     <br />
-                    <button id="loginbutton" onClick={handleLogin} data-bs-dismiss="modal" className="btn btn-primary">Login</button>
+                    <button id="loginbutton" onClick={handleLogin} className="btn btn-primary">Login</button>
                   </div>
                 </div>
               </div>
