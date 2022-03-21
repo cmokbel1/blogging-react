@@ -51,11 +51,12 @@ export function LogOrReg(props) {
     axios.post('/api/users/login', {
       username: userState.username,
       password: userState.password
-    }).then(res => {
-      console.log(res)
+    }).then(token => {
+      console.log(token)
       setLoginState(true)
-      localStorage.setItem('username', userState.username)
-      // localStorage.setItem('token', res.data.token)
+      localStorage.setItem('username', userState.username);
+      localStorage.setItem('token', token.data);
+    
 
     }).catch(err => { console.log(err) })
 
