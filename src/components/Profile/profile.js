@@ -3,7 +3,7 @@ const axios = require('axios')
 export function Profile() {
   // get user profile
 
-    let currentUser = []
+    let currentUser 
     async function getProfile() {
       try {
         const { data: user } = await axios.get('/api/users/profile', {
