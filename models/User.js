@@ -3,6 +3,7 @@ const { Schema, model } = require('mongoose')
 const User = new Schema({
   username: String,
   email: String,
+  isAdmin: Boolean,
   blogs: [
     {
       type: Schema.Types.ObjectId,

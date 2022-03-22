@@ -1,4 +1,6 @@
 .blogBox {
   border: 2px solid whitesmoke;
   text-align: center;
+  height: 400px;
+  width: 550px;
 }

@@ -34,6 +34,7 @@ main {
   grid-template-rows: auto auto;
   grid-template-areas:
   "topleft topright"
+  
 }
 
 .blogContainer {
@@ -49,7 +50,7 @@ aside {
   border: 2px solid whitesmoke;
   width: calc(100vw - 80%);
   height: calc(100vh - 40%);
-  overflow: scroll;
+  overflow: auto;
   grid-area: topright;
 }
 

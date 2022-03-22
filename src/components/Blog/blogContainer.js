@@ -37,9 +37,3 @@ const BlogContainer = (props) => {
 export default BlogContainer;
 
 
-//  REMOVED FROM BLOGS API // NOT NEEDED
-// {
-//   headers: {
-//     Authorization: `Bearer ${localStorage.getItem('token')}`
-//   }
-// }

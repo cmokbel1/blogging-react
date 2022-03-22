@@ -34,8 +34,11 @@ export function LogOrReg(props) {
       password: registerState.password,
       email: registerState.email
     }).then(res => {
+
       console.log(res)
-    })
+      alert('Account Successfully Created. Please Login')
+      window.location = "/"
+    }).catch(err => { console.log(err) })
 
   }
 
@@ -127,15 +130,15 @@ export function LogOrReg(props) {
                 <form>
                   <div className="mb-3">
                     <label htmlFor="username" className="form-label">Username:</label>
-                    <input type="text" name="username" id="registerUser" defaultValue={registerState.username} onChange={handleInputChangeRegister} className="form-control" placeholder="" required/>
+                    <input type="text" name="username" id="registerUser" defaultValue={registerState.username} onChange={handleInputChangeRegister} className="form-control" placeholder="" required={true}/>
                   </div>
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">E-mail:</label>
-                    <input type="text" name="email" id="registerEmail" className="form-control" onChange={handleInputChangeRegister} defaultValue={registerState.email} placeholder="" required/>
+                    <input type="text" name="email" id="registerEmail" className="form-control" onChange={handleInputChangeRegister} defaultValue={registerState.email} placeholder="" required={true}/>
                   </div>
                   <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password:</label>
-                    <input type="password" name="password" id="registerPassword" className="form-control" onChange={handleInputChangeRegister} defaultValue={registerState.password} placeholder="" required/>
+                    <input type="password" name="password" id="registerPassword" className="form-control" onChange={handleInputChangeRegister} defaultValue={registerState.password} placeholder="" required={true}/>
                   </div>
                   <button type="submit" className="btn btn-primary" onClick={handleRegisterClick}>Register</button>
                 </form>
