@@ -27,7 +27,7 @@ export function LogOrReg(props) {
 
   // button click response for register
   const handleRegisterClick = (event) => {
-    if (!registerState.username || !registerState.email || !registerState.password ) {
+    if (!registerState.username || !registerState.email < 4 ||!registerState.password ) {
       alert('Required Fields Missing')
       return;
     }
