@@ -22,29 +22,30 @@ main {
   padding-top: 50px;
   background-color: #282c34;
   color: whitesmoke;
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 55px);
+  display:flex;
 }
 
 .blogs {
   max-width: 800px;
+  max-height: 900px;
   margin-left: calc(22.5vw);
-  display: flex;
+  display: flexbox;
+  overflow: auto;
 }
 
 .blogContainer {
-  display: flexbox;
-  justify-content: center;
   align-items: center;
-  float:left;
 }
 
 aside {
-  display: flex;
+  display:inline-flex;
   border: 2px solid whitesmoke;
   width: calc(100vw - 80%);
-  height: calc(100vh - 40%);
+  height: calc(100vh - 50%);
   overflow: auto;
-  float:right
+  float:right;
+  margin-left: auto;
 }
 
 #foot {
@@ -54,4 +55,5 @@ aside {
   position: static;
   height: 50px;
   border-top: 2px solid #281c25;
+  margin-top: 5px;
 }
