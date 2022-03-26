@@ -2,25 +2,25 @@ import './blog.css';
 
 const Blog = (props) => {
   const { blog } = props
-      return (
-        <div className="blogBox">
-        <h2>{blog.title}</h2>
-        <hr />
-        <p>{blog.body}</p>
-        <hr />
-        <p id="postedBy">Posted By: Claude @ {blog.createdAt}</p>
-        <hr />
-        <button className="btn btn-info">Comment</button>
-        <hr />
-        <div className="comment Section">
-          <span>User 1:</span>
-            <span> Comment one</span>
-            <br />
-          <span>User 2:</span>
-            <span> Comment two</span>  
-        </div>
-        </div>
-      )
+  return (
+    <div className="blogBox">
+      <h2>{blog.title}</h2>
+      <hr />
+      <p>{blog.body}</p>
+      <hr />
+      <p id="postedBy">Posted By: Claude @ {blog.createdAt}</p>
+      <hr />
+      <button className="btn btn-info">Comment</button>
+      <hr />
+      <div className="comment Section">
+        <span>User 1:</span>
+        <span> Comment one</span>
+        <br />
+        <span>User 2:</span>
+        <span> Comment two</span>
+      </div>
+    </div>
+  )
 }
 
 

@@ -1,13 +1,9 @@
-import { BlogContainer, Footer, NavBar } from '../../components'
+import { BlogContainer, NavBar, Footer } from '../../components'
 
 
 
 export function Home(props) {
   return (
-    //  dead navbar with login button on the right side
-    // login button displays a modal with inputs
-    // modal displays login button inside which queries the database
-    // logging in closes the modal and thanks the user for logging in
     <>
     <NavBar />
     <main>
