@@ -27,31 +27,24 @@ main {
 
 .blogs {
   max-width: 800px;
-  display: flexbox;
   margin-left: calc(22.5vw);
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-  "topleft topright"
-  
+  display: flex;
 }
 
 .blogContainer {
-  display: flex;
+  display: flexbox;
   justify-content: center;
   align-items: center;
-  grid-area: topleft;
+  float:left;
 }
 
 aside {
-  justify-content: center;
   display: flex;
   border: 2px solid whitesmoke;
   width: calc(100vw - 80%);
   height: calc(100vh - 40%);
   overflow: auto;
-  grid-area: topright;
+  float:right
 }
 
 #foot {

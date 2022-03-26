@@ -1,6 +1,16 @@
 .blogBox {
   border: 2px solid whitesmoke;
   text-align: center;
-  height: 400px;
+  height: 350px;
   width: 550px;
+  overflow: auto;
+}
+
+h2 {
+  margin-top: 5px;
+
+}
+
+#postedBy {
+  text-align:left;
 }

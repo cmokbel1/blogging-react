@@ -8,12 +8,8 @@ const BlogContainer = (props) => {
   // creates a blogstate that queries the database for all the blog posts
   const [blogs, setBlogs] = useState([
     {
-      title: 'Blog one',
-      body: 'Can you tell that I am elated to have solved this issue?'
-   },
-   {
-    title: 'Blog Two',
-    body: " And it was on this day that we realized we still had a long way to go!"
+      title: '',
+      body: ''
    }
   ])
 
@@ -21,6 +17,7 @@ const BlogContainer = (props) => {
     function getBlogs() {
       axios.get('/api/blogs').then(res => {
         console.log(res)
+        setBlogs(res.data)
       }).catch(err => {
         console.log(err)
       })
