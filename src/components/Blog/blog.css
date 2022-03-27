@@ -6,9 +6,9 @@
   overflow: auto;
 }
 
-h2 {
+h4 {
   margin-top: 5px;
-
+  font-weight: bold;
 }
 
 #postedBy {

@@ -4,7 +4,7 @@ const Blog = (props) => {
   const { blog } = props
   return (
     <div className="blogBox">
-      <h2>{blog.title}</h2>
+      <h4>{blog.title}</h4>
       <hr />
       <p>{blog.body}</p>
       <hr />
