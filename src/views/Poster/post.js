@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Footer, NavBar } from '../../components'
+import './post.css'
 const axios = require('axios')
 
 export function Poster() {
@@ -43,11 +44,11 @@ export function Poster() {
           <form>
             <div className="mb-3">
               <label htmlFor="title" className="form-label">Title:</label>
-              <input type="text" name="title" className="form-control" placeholder="Sample Blog Title" onChange={handleInputChange} required />
+              <input type="text" name="title" className="form-control formTitle" placeholder="Sample Blog Title" onChange={handleInputChange} required />
             </div>
             <div className="mb-3">
               <label htmlFor="body" className="form-label">Body:</label>
-              <textarea name="body" className="form-control" placeholder="Enter Blog Post Here" onChange={handleInputChange} required />
+              <textarea name="body" className="form-control formBody" placeholder="Enter Blog Post Here" onChange={handleInputChange} required />
             </div>
             <button type="submit" className="btn btn-primary" onClick={handlePostBlog}>Post</button>
           </form>

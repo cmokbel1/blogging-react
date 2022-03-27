@@ -24,6 +24,7 @@ main {
   color: whitesmoke;
   min-height: calc(100vh - 55px);
   display:flex;
+  justify-content: center;
 }
 
 .blogs {
@@ -55,5 +56,4 @@ aside {
   position: static;
   height: 50px;
   border-top: 2px solid #281c25;
-  margin-top: 5px;
 }

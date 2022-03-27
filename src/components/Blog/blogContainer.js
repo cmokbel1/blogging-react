@@ -16,8 +16,7 @@ const BlogContainer = (props) => {
   useEffect(() => {
     function getBlogs() {
       axios.get('/api/blogs').then(res => {
-        console.log(res)
-        setBlogs(res.data)
+        setBlogs(res.data.reverse())
       }).catch(err => {
         console.log(err)
       })
