@@ -50,6 +50,7 @@ export function LogOrReg(props) {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     setLoginState(false)
+    window.location = '/';
   }
   // when a user clicks login
   const handleLogin = (event) => {

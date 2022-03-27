@@ -3,6 +3,7 @@ import './blog.css';
 const Blog = (props) => {
   const { blog } = props
   return (
+    <>
     <div className="blogBox">
       <h4>{blog.title}</h4>
       <hr />
@@ -20,6 +21,7 @@ const Blog = (props) => {
         <span> Comment two</span>
       </div>
     </div>
+    </>
   )
 }
 

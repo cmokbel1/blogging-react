@@ -4,6 +4,7 @@
   height: 350px;
   width: 550px;
   overflow: auto;
+  margin-bottom: 20px;
 }
 
 h4 {
