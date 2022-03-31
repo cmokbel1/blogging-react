@@ -20,8 +20,8 @@ const Blog = (props) => {
         <hr />
         <p id="postedBy">Posted By: Claude @ {blog.createdAt}</p>
         <hr />
-        <button className="btn btn-info" onClick={handleOpen}>Comment</button>
-        <HandleNoteModal open={open} onClose={handleClose} />
+        <button className="btn btn-info" onClick={() => handleOpen}>Comment</button>
+        <HandleNoteModal open={open} onClose={() => handleClose} />
         <hr />
         <div className="comment Section">
           <span>User 1:</span>
