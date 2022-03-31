@@ -3,6 +3,7 @@ import { useState } from 'react'
 export function HandleNoteModal(props)  {
   const { handleClose } = props
   const [noteState, setNoteState] = useState({
+    user: '',
     note: ''
   });
 

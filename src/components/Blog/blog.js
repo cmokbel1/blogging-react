@@ -7,8 +7,8 @@ const Blog = (props) => {
 
 
   const [open, setOpen] = useState({});
-  const handleOpen = idx => setOpen(prev => ({ ...prev, [idx]: true }));
-  const handleClose = idx => setOpen(prev => ({ ...prev, [idx]: false }));
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
 
   return (
@@ -20,8 +20,8 @@ const Blog = (props) => {
         <hr />
         <p id="postedBy">Posted By: Claude @ {blog.createdAt}</p>
         <hr />
-        <button className="btn btn-info" onClick={() => handleOpen(idx)}>Comment</button>
-        <HandleNoteModal open={open[idx]} onClose={() => handleClose(idx)} />
+        <button className="btn btn-info" onClick={handleOpen}>Comment</button>
+        <HandleNoteModal open={open} onClose={handleClose} />
         <hr />
         <div className="comment Section">
           <span>User 1:</span>
