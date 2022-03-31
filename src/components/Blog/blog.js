@@ -7,26 +7,21 @@ const Blog = (props) => {
 
 
   const [open, setOpen] = useState({});
-  const handleOpen = id => setOpen(prev => ({ ...prev, [id]: true }));
-  const handleClose = id => setOpen(prev => ({ ...prev, [id]: false }));
+  const handleOpen = idx => setOpen(prev => ({ ...prev, [idx]: true }));
+  const handleClose = idx => setOpen(prev => ({ ...prev, [idx]: false }));
 
-
-  if (open === true) {
-    return (
-      <HandleNoteModal open={open(id)} key={id} onClose={() => handleClose(id)} />
-    )
-  }
 
   return (
     <>
-      <div className="blogBox"id={id} key={idx}>
+      <div className="blogBox" id={id} key={idx}>
         <h4>{blog.title}</h4>
         <hr />
         <p>{blog.body}</p>
         <hr />
         <p id="postedBy">Posted By: Claude @ {blog.createdAt}</p>
         <hr />
-        <button className="btn btn-info" onClick={() => handleOpen(id)}>Comment</button>
+        <button className="btn btn-info" onClick={() => handleOpen(idx)}>Comment</button>
+        <HandleNoteModal open={open[idx]} onClose={() => handleClose(idx)} />
         <hr />
         <div className="comment Section">
           <span>User 1:</span>
