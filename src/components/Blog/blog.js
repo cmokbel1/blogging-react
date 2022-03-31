@@ -10,15 +10,10 @@ const Blog = (props) => {
   const handleOpen = id => setOpen(prev => ({ ...prev, [id]: true }));
   const handleClose = id => setOpen(prev => ({ ...prev, [id]: false }));
 
-   const handleModalSwitch = (id) => {
-    handleOpen(id)
-    console.log(open)
 
-   }
-
-  if (open) {
+  if (open === true) {
     return (
-      <HandleNoteModal key={id} onClose={handleClose} />
+      <HandleNoteModal open={open(id)} key={id} onClose={() => handleClose(id)} />
     )
   }
 
@@ -31,7 +26,7 @@ const Blog = (props) => {
         <hr />
         <p id="postedBy">Posted By: Claude @ {blog.createdAt}</p>
         <hr />
-        <button className="btn btn-info" onClick={handleModalSwitch}>Comment</button>
+        <button className="btn btn-info" onClick={() => handleOpen(id)}>Comment</button>
         <hr />
         <div className="comment Section">
           <span>User 1:</span>
