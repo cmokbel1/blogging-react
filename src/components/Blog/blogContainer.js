@@ -9,7 +9,8 @@ const BlogContainer = (props) => {
   const [blogs, setBlogs] = useState([
     {
       title: '',
-      body: ''
+      body: '',
+      id: ''
    }
   ])
 
@@ -24,9 +25,10 @@ const BlogContainer = (props) => {
     getBlogs();
   }, [])
 
+  console.log(blogs)
 
   return (
-    blogs.map((blog, idx) => <Blog  key={idx} blog={blog}/> )
+    blogs.map((blog, idx, id) => <Blog id={blog._id} key={idx} blog={blog}/> )
   )
 }
 

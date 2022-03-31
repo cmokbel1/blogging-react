@@ -1,27 +1,30 @@
 import { useState } from 'react'
 import './blog.css';
-import {HandleNoteModal} from '../NoteModal/notemodal'
+import { HandleNoteModal } from '../NoteModal/notemodal'
 
 const Blog = (props) => {
-  const { blog } = props
+  const { blog, idx, id } = props
 
-  
-  const [showModal, setShowModal] = useState(null)
 
-   function handleModalSwitch()  {
-    setShowModal(true)
-    console.log(showModal)
+  const [open, setOpen] = useState({});
+  const handleOpen = id => setOpen(prev => ({ ...prev, [id]: true }));
+  const handleClose = id => setOpen(prev => ({ ...prev, [id]: false }));
+
+   const handleModalSwitch = (id) => {
+    handleOpen(id)
+    console.log(open)
+
    }
 
-  if (showModal) {
+  if (open) {
     return (
-      <HandleNoteModal />
+      <HandleNoteModal key={id} onClose={handleClose} />
     )
   }
 
   return (
     <>
-      <div className="blogBox">
+      <div className="blogBox"id={id} key={idx}>
         <h4>{blog.title}</h4>
         <hr />
         <p>{blog.body}</p>

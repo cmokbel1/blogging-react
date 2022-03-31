@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-export function HandleNoteModal()  {
-
+export function HandleNoteModal(props)  {
+  const { handleClose } = props
   const [noteState, setNoteState] = useState({
     note: ''
   });
@@ -29,7 +29,7 @@ export function HandleNoteModal()  {
             </form>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={handleClose}>Close</button>
           </div>
         </div>
       </div>
