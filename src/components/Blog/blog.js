@@ -6,7 +6,8 @@ const Blog = (props) => {
 
   const [noteState, setNoteState] = useState({
     user: '',
-    note: ''
+    note: '',
+    blog: blog.id
   });
 
   const handleInputChange = ({ target: { name, value } }) => {
@@ -23,12 +24,14 @@ const Blog = (props) => {
         <hr />
         <p id="postedBy">Posted By: Claude @ {blog.createdAt}</p>
         <hr />
-        <label htmlFor="comment" className="col-sm-2 col-form-label">Leave a Comment:</label>
-          <textarea type="text" className="form-control"  name="comment" onChange={handleInputChange}  placeholder=" " />
+        <label htmlFor="comment" className=" col-form-label">Share Your Thoughts:</label>
+          <textarea type="text" className="form-control"  name="note" onChange={handleInputChange}  placeholder=" " />
           <br />
         <button className="btn btn-info" >Comment</button>
         <hr />
         <div className="comment Section">
+          <h5><strong>Comments</strong></h5>
+          <hr />
         </div>
       </div>
     </>
