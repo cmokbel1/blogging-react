@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './blog.css';
+const axios = require('axios')
 
 const Blog = (props) => {
   const { blog, idx, id } = props
