@@ -11,6 +11,19 @@ const Blog = (props) => {
     blog: blog.id
   });
 
+  const addComment = (props) => {
+   
+    let data = {
+      body: noteState.note,
+      pid: noteState.blog,
+    }
+    console.log(data)
+
+    let headers = {
+      'Authorization': `Bearer ${localStorage.token}`
+    }
+  }
+
   const handleInputChange = ({ target: { name, value } }) => {
     setNoteState({ ...noteState, [name]: value });
   };
@@ -28,7 +41,7 @@ const Blog = (props) => {
         <label htmlFor="comment" className=" col-form-label">Share Your Thoughts:</label>
           <textarea type="text" className="form-control"  name="note" onChange={handleInputChange}  placeholder=" " />
           <br />
-        <button className="btn btn-info" >Comment</button>
+        <button className="btn btn-info" onClick={addComment}>Comment</button>
         <hr />
         <div className="comment Section">
           <h5><strong>Comments</strong></h5>

@@ -6,7 +6,8 @@ const axios = require('axios')
 export function Poster() {
   const [blogPost, setBlogPost] = useState({
     title: '',
-    body: ''
+    body: '',
+    user:
   })
 
   const handleInputChange = ({ target: { name, value } }) => {
@@ -18,7 +19,8 @@ export function Poster() {
     if (localStorage.getItem('username') === 'Claude') {
       let newPost = {
         title: blogPost.title,
-        body: blogPost.body
+        body: blogPost.body,
+        user: 
       }
       axios.post('/api/blogs', newPost, {
         headers: {
