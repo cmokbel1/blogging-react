@@ -4,7 +4,7 @@ import Blog from './blog';
 const axios = require('axios');
 
 
-const BlogContainer = (props) => {
+const BlogContainer = () => {
   // creates a blogstate that queries the database for all the blog posts
   const [blogs, setBlogs] = useState([
     {
