@@ -14,8 +14,9 @@ const Blog = (props) => {
    
     let data = {
       body: noteState.note,
-      pid: noteState.blog,
+      pid: id,
     }
+    console.log(data)
 
     let headers = {
       'Authorization': `Bearer ${localStorage.token}`

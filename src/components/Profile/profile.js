@@ -37,7 +37,7 @@ export function Profile() {
             <br />
               <span><strong>e-mail: </strong></span>{currentUser ? currentUser.email : ''}<span></span>
             <br />
-            <button>Change Password</button>
+            <button onClick={() => prompt('please enter new password')}>Change Password</button>
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
