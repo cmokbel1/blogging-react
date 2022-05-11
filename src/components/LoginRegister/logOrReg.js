@@ -27,11 +27,11 @@ export function LogOrReg(props) {
 
   // button click response for register
   const handleRegisterClick = (event) => {
+    event.preventDefault()
     if (!registerState.username || !registerState.email < 4 ||!registerState.password ) {
-      alert('Required Fields Missing')
+      alert('Required Field(s) Missing')
       return;
     }
-    event.preventDefault()
     axios.post('api/users/register', {
       username: registerState.username,
       password: registerState.password,
@@ -134,15 +134,15 @@ export function LogOrReg(props) {
                 <form>
                   <div className="mb-3">
                     <label htmlFor="username" className="form-label">Username:</label>
-                    <input type="text" name="username" id="registerUser" defaultValue={registerState.username} onChange={handleInputChangeRegister} className="form-control register" placeholder="" required={true}/>
+                    <input type="text" name="username" id="registerUser" value={registerState.username} onChange={handleInputChangeRegister} className="form-control register" placeholder="" required={true}/>
                   </div>
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">E-mail:</label>
-                    <input type="text" name="email" id="registerEmail" className="form-control register" onChange={handleInputChangeRegister} defaultValue={registerState.email} placeholder="" required={true}/>
+                    <input type="text" name="email" id="registerEmail" className="form-control register" onChange={handleInputChangeRegister} value={registerState.email} placeholder="" required={true}/>
                   </div>
                   <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password:</label>
-                    <input type="password" name="password" id="registerPassword" className="form-control register" onChange={handleInputChangeRegister} defaultValue={registerState.password} placeholder="" required={true}/>
+                    <input type="password" name="password" id="registerPassword" className="form-control register" onChange={handleInputChangeRegister} value={registerState.password} placeholder="" required={true}/>
                   </div>
                   <button type="submit" className="btn btn-primary" onClick={handleRegisterClick}>Register</button>
                 </form>

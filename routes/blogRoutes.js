@@ -10,7 +10,7 @@ router.get('/blogs', async function (req, res) {
 
 // //get one post 
 router.get('/blogs/:id', passport.authenticate('jwt'), async function (req, res) {
-  const blogs = await Blog.findOne({ where: {id: req.params.id} })
+  const blogs = await Blog.findOne({ where: {id: req.params.id} }).populate('note')
   res.json(blogs)
 })
 
