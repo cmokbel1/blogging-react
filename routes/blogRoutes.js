@@ -4,13 +4,13 @@ const passport = require('passport')
 
 // get all blogs
 router.get('/blogs', async function (req, res) {
-  const blogs = await Blog.find({ include: [User, Note] })
+  const blogs = await Blog.find()
   res.json(blogs)
 })
 
 // //get one post 
 router.get('/blogs/:id', passport.authenticate('jwt'), async function (req, res) {
-  const blogs = await Blog.findOne({ where: {id: req.params.id}, include: [User, Note] })
+  const blogs = await Blog.findOne({ where: {id: req.params.id} })
   res.json(blogs)
 })
 
@@ -20,7 +20,7 @@ router.post('/blogs', passport.authenticate('jwt'), async function (req, res) {
   const blog = await Blog.create({
     body: req.body.body,
     title: req.body.title,
-    uid: req.user.id
+    user: req.user.id
   })
   res.json(blog)
 })

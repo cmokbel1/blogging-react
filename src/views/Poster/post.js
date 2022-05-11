@@ -29,7 +29,6 @@ export function Poster() {
       })
         .then(res => {
           console.log(res)
-          window.location = '/'
           blogPost.title = ''
           blogPost.body = ''
         })

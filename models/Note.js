@@ -9,7 +9,8 @@ const Note = new Schema({
   blog: {
     type: Schema.Types.ObjectId,
     ref: 'blog'
-  }
+  },
+  username: String
 
 }, { timestaps: true })
 
