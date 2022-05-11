@@ -14,7 +14,7 @@ router.post('/notes/:id', passport.authenticate('jwt'), async function (req, res
   const note = await Note.create({
     text: req.body.body,
     pid: req.body.pid,
-    uid: req.session.userId,
+    uid: req.user.id,
     username: req.session.username
   })
   res.json(note)

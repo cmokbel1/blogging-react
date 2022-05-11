@@ -34,7 +34,7 @@ export function Poster() {
           blogPost.body = ''
         })
     } else {
-      alert('Oops, you\'re not allowed to post.')
+      alert('Oops, you\'re not allowed to post. How did you get to this page?')
     }
   }
 

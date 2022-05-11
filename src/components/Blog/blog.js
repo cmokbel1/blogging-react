@@ -6,9 +6,8 @@ const Blog = (props) => {
   const { blog, idx, id } = props
 
   const [noteState, setNoteState] = useState({
-    user: '',
     note: '',
-    blog: blog.id
+    blog: id
   });
 
   const addComment = (props) => {
@@ -22,6 +21,12 @@ const Blog = (props) => {
     let headers = {
       'Authorization': `Bearer ${localStorage.token}`
     }
+    axios.post(`/api/notes/${id}`, data,{headers: headers}).then(res => {
+      console.log(res);
+      noteState.note = '';
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
   const handleInputChange = ({ target: { name, value } }) => {

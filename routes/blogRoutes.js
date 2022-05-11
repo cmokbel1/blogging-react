@@ -20,7 +20,7 @@ router.post('/blogs', passport.authenticate('jwt'), async function (req, res) {
   const blog = await Blog.create({
     body: req.body.body,
     title: req.body.title,
-    uid: req.session.userId
+    uid: req.user.id
   })
   res.json(blog)
 })
