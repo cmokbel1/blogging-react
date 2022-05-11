@@ -22,17 +22,11 @@ main {
 }
 
 .blogs {
-  max-width: 800px;
-  max-height: 900px;
-  display: flexbox;
   overflow: auto;
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
   border: 2px solid grey;
 }
 
-.blogContainer {
-  align-items: center;
-}
 
 aside {
   display:inline-flex;

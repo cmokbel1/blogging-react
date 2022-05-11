@@ -1,8 +1,7 @@
 .blogBox {
   border: 2px solid whitesmoke;
   text-align: center;
-  height: 650px;
-  width: 550px;
+  height: 70em;
   overflow: auto;
   margin-bottom: 20px;
 }

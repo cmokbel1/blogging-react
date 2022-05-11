@@ -24,9 +24,7 @@ const BlogContainer = () => {
     }
     getBlogs();
   }, [])
-
   console.log(blogs)
-
   return (
     blogs.map((blog, idx, id) => <Blog id={blog._id} key={idx} blog={blog}/> )
   )

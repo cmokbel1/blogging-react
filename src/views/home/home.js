@@ -13,7 +13,7 @@ export function Home(props) {
       <>
         <NavBar />
         <main>
-          <div className=" blogs row justify-content-center">
+          <div className=" blogs col container">
             <BlogContainer className="blogContainer" />
           </div>
         </main>

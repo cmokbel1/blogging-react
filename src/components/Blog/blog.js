@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './blog.css';
 const axios = require('axios')
 
@@ -16,7 +16,6 @@ const Blog = (props) => {
       body: noteState.note,
       pid: noteState.blog,
     }
-    console.log(data)
 
     let headers = {
       'Authorization': `Bearer ${localStorage.token}`
@@ -36,7 +35,7 @@ const Blog = (props) => {
 
   return (
     <>
-      <div className="blogBox" id={id} key={idx}>
+      <div className="blogBox col container" id={id} key={idx}>
         <h4>{blog.title}</h4>
         <hr />
         <p>{blog.body}</p>
