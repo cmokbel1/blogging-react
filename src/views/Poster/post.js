@@ -7,7 +7,7 @@ export function Poster() {
   const [blogPost, setBlogPost] = useState({
     title: '',
     body: '',
-    user:
+    user: ''
   })
 
   const handleInputChange = ({ target: { name, value } }) => {
@@ -20,7 +20,7 @@ export function Poster() {
       let newPost = {
         title: blogPost.title,
         body: blogPost.body,
-        user: 
+        user: ''
       }
       axios.post('/api/blogs', newPost, {
         headers: {
