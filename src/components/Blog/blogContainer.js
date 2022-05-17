@@ -5,6 +5,7 @@ const axios = require('axios');
 
 
 const BlogContainer = () => {
+  const [isLoading, setIsLoading] = useState(true);
   // creates a blogstate that queries the database for all the blog posts
   const [blogs, setBlogs] = useState([
     {
@@ -12,7 +13,7 @@ const BlogContainer = () => {
       body: '',
       id: ''
    }
-  ])
+  ]);
 
   useEffect(() => {
     function getBlogs() {
