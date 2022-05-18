@@ -7,7 +7,7 @@ const axios = require('axios');
 const BlogContainer = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(3);
+  const [blogsPerPage] = useState(3);
   // creates a blogstate that queries the database for all the blog posts
   const [blogs, setBlogs] = useState([
     {
@@ -27,10 +27,14 @@ const BlogContainer = () => {
     }
     getBlogs();
   }, [])
-  console.log(blogs)
+
+  // Get Current Posts
+  const indexOfLastBlog = currentPage * blogsPerPage;
+  const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
+  const currentBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog);
  
   return (
-    <Blogs loading={loading} blogs={blogs}/>
+    <Blogs loading={loading} blogs={currentBlogs}/>
   )
 }
 
