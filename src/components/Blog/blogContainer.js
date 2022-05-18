@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './blog.css';
 import Blogs from './Blogs.js';
+import { Pagination } from '../Pagination';
 const axios = require('axios');
 
 
@@ -28,13 +29,22 @@ const BlogContainer = () => {
     getBlogs();
   }, [])
 
+
   // Get Current Posts
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
   const currentBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog);
  
+
+  // change page
+const paginate = pageNumber => setCurrentPage(pageNumber);
+
+
   return (
+    <>
     <Blogs loading={loading} blogs={currentBlogs}/>
+    <Pagination blogsPerPage={blogsPerPage} totalBlogs={blogs.length} paginate={paginate}/>
+    </>
   )
 }
 
