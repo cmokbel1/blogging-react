@@ -26,6 +26,7 @@ const Blog = (props) => {
       noteState.note = '';
     }).catch(err => {
       console.log(err)
+      alert("Please login or create an account to comment.");
     })
   }
 

@@ -1,6 +1,6 @@
 {
-  "short_name": "Claude's Corner",
-  "name": "Claude's React Blog",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",

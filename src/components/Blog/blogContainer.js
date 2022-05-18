@@ -32,5 +32,3 @@ const BlogContainer = () => {
 }
 
 export default BlogContainer;
-
-

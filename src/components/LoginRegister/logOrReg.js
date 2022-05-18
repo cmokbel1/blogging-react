@@ -28,7 +28,7 @@ export function LogOrReg(props) {
   // button click response for register
   const handleRegisterClick = (event) => {
     event.preventDefault()
-    if (!registerState.username < 5 || !registerState.email < 4 ||!registerState.password ) {
+    if (registerState.username.length < 5 || registerState.email.length < 4 || !registerState.password ) {
       alert('Required Field(s) Missing')
       return;
     }
@@ -39,7 +39,7 @@ export function LogOrReg(props) {
     }).then(res => {
 
       console.log(res)
-      alert('Account Successfully Created. Please Login')
+      alert('Account Successfully Created.')
       // window.location = "/"
     }).catch(err => { console.log(err) })
 
