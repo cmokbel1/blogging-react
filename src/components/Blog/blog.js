@@ -1,43 +1,39 @@
-import { useState, useEffect } from 'react'
+import {useState} from 'react';
 import './blog.css';
 const axios = require('axios')
 
-const Blog = (props) => {
-  const { blog, idx, id } = props
+const Blog = ({blog, id, idx}) => {
+    const [noteState, setNoteState] = useState({
+        note: '',
+        blog: id
+      });
 
-  const [noteState, setNoteState] = useState({
-    note: '',
-    blog: id
-  });
-
-  const addComment = (props) => {
+    const addComment = () => {
    
-    let data = {
-      body: noteState.note,
-      pid: id,
-    }
-    console.log(data)
-
-    let headers = {
-      'Authorization': `Bearer ${localStorage.token}`
-    }
-    axios.post(`/api/notes/${id}`, data,{headers: headers}).then(res => {
-      console.log(res);
-      noteState.note = '';
-    }).catch(err => {
-      console.log(err)
-      alert("Please login or create an account to comment.");
-    })
-  }
-
-  const handleInputChange = ({ target: { name, value } }) => {
-    setNoteState({ ...noteState, [name]: value });
-  };
-
-
-  return (
-    <>
-      <div className="blogBox col container" id={id} key={idx}>
+        let data = {
+          body: noteState.note,
+          pid: id,
+        }
+        console.log(data)
+    
+        let headers = {
+          'Authorization': `Bearer ${localStorage.token}`
+        }
+        axios.post(`/api/notes/${id}`, data,{headers: headers}).then(res => {
+          console.log(res);
+          noteState.note = '';
+        }).catch(err => {
+          console.log(err)
+          alert("Please login or create an account to comment.");
+        })
+      }
+    
+      const handleInputChange = ({ target: { name, value } }) => {
+        setNoteState({ ...noteState, [name]: value });
+      };
+    
+    return (
+        <div className="blogBox col container" id={id} key={idx}>
         <h4>{blog.title}</h4>
         <hr />
         <p>{blog.body}</p>
@@ -54,11 +50,8 @@ const Blog = (props) => {
           <hr />
         </div>
       </div>
-    </>
-  )
-
+    )
 }
-
 
 
 export default Blog;

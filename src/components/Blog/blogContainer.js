@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import './blog.css';
-import Blog from './blog';
+import Blogs from './Blogs.js';
 const axios = require('axios');
 
 
 const BlogContainer = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(3);
   // creates a blogstate that queries the database for all the blog posts
   const [blogs, setBlogs] = useState([
     {
@@ -16,18 +18,19 @@ const BlogContainer = () => {
   ]);
 
   useEffect(() => {
-    function getBlogs() {
-      axios.get('/api/blogs').then(res => {
-        setBlogs(res.data.reverse())
-      }).catch(err => {
-        console.log(err)
-      })
+   const getBlogs = async () => {
+     setLoading(true);
+     console.log(loading)
+     const res = await axios.get('/api/blogs');
+    setBlogs(res.data.reverse());
+    setLoading(false);
     }
     getBlogs();
   }, [])
   console.log(blogs)
+ 
   return (
-    blogs.map((blog, idx, id) => <Blog id={blog._id} key={idx} blog={blog}/> )
+    <Blogs loading={loading} blogs={blogs}/>
   )
 }
 
