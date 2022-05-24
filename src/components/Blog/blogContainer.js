@@ -15,16 +15,15 @@ const BlogContainer = () => {
       title: '',
       body: '',
       id: ''
-   }
+    }
   ]);
 
   useEffect(() => {
-   const getBlogs = async () => {
-     setLoading(true);
-     console.log(loading)
-     const res = await axios.get('/api/blogs');
-    setBlogs(res.data.reverse());
-    setLoading(false);
+    const getBlogs = async () => {
+      setLoading(true);
+      const res = await axios.get('/api/blogs');
+      setBlogs(res.data.reverse());
+      setLoading(false);
     }
     getBlogs();
   }, [])
@@ -34,16 +33,16 @@ const BlogContainer = () => {
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
   const currentBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog);
- 
+
 
   // change page
-const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
 
   return (
     <>
-    <Blogs loading={loading} blogs={currentBlogs}/>
-    <Pagination blogsPerPage={blogsPerPage} totalBlogs={blogs.length} paginate={paginate}/>
+      <Blogs loading={loading} blogs={currentBlogs} />
+      <Pagination blogsPerPage={blogsPerPage} totalBlogs={blogs.length} paginate={paginate} />
     </>
   )
 }
