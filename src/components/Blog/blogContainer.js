@@ -8,7 +8,7 @@ const axios = require('axios');
 const BlogContainer = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [blogsPerPage] = useState(3);
+  const [blogsPerPage] = useState(1);
   // creates a blogstate that queries the database for all the blog posts
   const [blogs, setBlogs] = useState([
     {
